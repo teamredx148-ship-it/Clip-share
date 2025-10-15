@@ -1,0 +1,141 @@
+/* Base theme variables */
+:root {
+  /* Default light theme variables */
+  --color-primary: #1a1a1a;
+  --color-secondary: #4b5563;
+  --color-tertiary: #9ca3af;
+  --color-background: #f9fafb;
+  --color-card: #ffffff;
+  --color-header: rgba(255, 255, 255, 0.9);
+  --color-hover: rgba(0, 0, 0, 0.05);
+  --color-divider: #e5e7eb;
+  --color-input: #d1d5db;
+  
+  /* Accent colors - blue default */
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+}
+
+/* Dark theme */
+.dark-theme {
+  --color-primary: #f3f4f6;
+  --color-secondary: #d1d5db;
+  --color-tertiary: #9ca3af;
+  --color-background: #111827;
+  --color-card: #1f2937;
+  --color-header: rgba(17, 24, 39, 0.9);
+  --color-hover: rgba(255, 255, 255, 0.05);
+  --color-divider: #374151;
+  --color-input: #4b5563;
+}
+
+/* Accent color variations */
+.accent-blue {
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+}
+
+.accent-purple {
+  --color-accent: #8b5cf6;
+  --color-accent-hover: #7c3aed;
+}
+
+.accent-teal {
+  --color-accent: #14b8a6;
+  --color-accent-hover: #0d9488;
+}
+
+.accent-amber {
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+}
+
+.accent-rose {
+  --color-accent: #f43f5e;
+  --color-accent-hover: #e11d48;
+}
+
+/* Utility classes for theme colors */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-tertiary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-background {
+  background-color: var(--color-background);
+}
+
+.bg-card {
+  background-color: var(--color-card);
+}
+
+.bg-header {
+  background-color: var(--color-header);
+}
+
+.bg-hover {
+  background-color: var(--color-hover);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.bg-accent-hover {
+  background-color: var(--color-accent-hover);
+}
+
+.border-divider {
+  border-color: var(--color-divider);
+}
+
+.border-input {
+  border-color: var(--color-input);
+}
+
+.border-accent {
+  border-color: var(--color-accent);
+}
+
+/* Transitions */
+.transition-colors {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* App-specific styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* QR Scanner styles */
+#qr-scanner video {
+  border-radius: 0.5rem;
+  width: 250px !important;
+  height: 250px !important;
+}
