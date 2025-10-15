@@ -14,8 +14,8 @@ const Header: React.FC<HeaderProps> = ({ onShowManual }) => {
   };
 
   return (
-    <header className="flex items-center justify-between px-4 py-3 bg-header border-b border-divider">
-      <div className="flex items-center gap-2">
+    <header className="flex items-center justify-between px-4 py-3 bg-header border-b border-divider shadow-sm">
+      <div className="flex items-center gap-2 animate-fade-in">
         <ClipboardText className="h-7 w-7 text-accent" />
         <h1 className="text-xl font-bold text-primary">ClipShare</h1>
       </div>
@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ onShowManual }) => {
       <div className="flex items-center gap-2">
         <button
           onClick={onShowManual}
-          className="p-2 rounded-full text-primary hover:bg-hover transition-colors"
+          className="p-2 rounded-full text-primary hover:bg-hover transition-all duration-200 hover:scale-110 active:scale-95"
           aria-label="How to use"
         >
           <HelpCircle className="h-5 w-5" />
@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ onShowManual }) => {
 
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full text-primary hover:bg-hover transition-colors"
+          className="p-2 rounded-full text-primary hover:bg-hover transition-all duration-200 hover:scale-110 active:scale-95"
           aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ onShowManual }) => {
 
         <a
           href="#theme-settings"
-          className="p-2 rounded-full text-primary hover:bg-hover transition-colors"
+          className="p-2 rounded-full text-primary hover:bg-hover transition-all duration-200 hover:scale-110 active:scale-95"
           aria-label="Theme settings"
         >
           <Paintbrush className="h-5 w-5" />

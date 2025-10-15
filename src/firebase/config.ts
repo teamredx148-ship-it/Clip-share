@@ -1,18 +1,17 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  apiKey: "AIzaSyD7KChP9EmjPjEJXYWZAvKCsQZKlISlJhg",
+  authDomain: "clip-sharing-dcae3.firebaseapp.com",
+  projectId: "clip-sharing-dcae3",
+  storageBucket: "clip-sharing-dcae3.firebasestorage.app",
+  messagingSenderId: "590042719399",
+  appId: "1:590042719399:web:87cfdbd194baefc00de782",
+  measurementId: "G-3JTEJEMM1G",
+  databaseURL: "https://clip-sharing-dcae3-default-rtdb.firebaseio.com"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 

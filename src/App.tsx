@@ -32,17 +32,17 @@ function App() {
         <Header onShowManual={() => setShowManual(true)} />
 
         <main className="flex-1 container mx-auto max-w-3xl px-4 py-6">
-          <div className="bg-card rounded-xl shadow-sm border border-divider overflow-hidden">
+          <div className="bg-card rounded-xl shadow-lg border border-divider overflow-hidden animate-slide-up">
             <TabNav activeTab={activeTab} setActiveTab={setActiveTab} />
-            
+
             {activeTab === 'save' ? (
               <SaveTab />
             ) : (
               <RetrieveTab />
             )}
           </div>
-          
-          <div className="mt-8">
+
+          <div className="mt-8 animate-fade-in">
             <ThemeSettings />
           </div>
         </main>
@@ -54,11 +54,11 @@ function App() {
 
       {/* User Manual Modal */}
       {showManual && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-card rounded-xl shadow-xl border border-divider max-w-2xl w-full max-h-[80vh] overflow-y-auto relative">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-card rounded-xl shadow-xl border border-divider max-w-2xl w-full max-h-[80vh] overflow-y-auto relative animate-scale-in">
             <button
               onClick={() => setShowManual(false)}
-              className="absolute top-3 right-3 p-2 rounded-full hover:bg-hover text-secondary transition-colors z-10"
+              className="absolute top-3 right-3 p-2 rounded-full hover:bg-hover text-secondary transition-all duration-200 z-10 hover:scale-110 active:scale-95"
               aria-label="Close user manual"
             >
               <X className="h-5 w-5" />

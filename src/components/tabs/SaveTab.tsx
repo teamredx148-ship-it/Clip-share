@@ -73,7 +73,7 @@ const SaveTab: React.FC = () => {
   };
 
   return (
-    <div className="p-4 md:p-6 flex flex-col gap-4">
+    <div className="p-4 md:p-6 flex flex-col gap-4 animate-fade-in">
       {showConfetti && (
         <Confetti
           width={window.innerWidth}
@@ -97,7 +97,7 @@ const SaveTab: React.FC = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Type or paste your text here..."
-                className="p-3 rounded-lg border border-input bg-background text-primary min-h-[150px] focus:outline-none focus:ring-2 focus:ring-accent/50"
+                className="p-3 rounded-lg border border-input bg-background text-primary min-h-[150px] focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-200 hover:border-accent/30"
                 disabled={isLoading}
               />
             </div>
@@ -114,7 +114,7 @@ const SaveTab: React.FC = () => {
                   id="expiration"
                   value={expirationHours}
                   onChange={(e) => setExpirationHours(Number(e.target.value))}
-                  className="p-3 rounded-lg border border-input bg-background text-primary focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  className="p-3 rounded-lg border border-input bg-background text-primary focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-200 hover:border-accent/30 cursor-pointer"
                   disabled={isLoading}
                 >
                   {EXPIRATION_OPTIONS.map(option => (
@@ -135,7 +135,7 @@ const SaveTab: React.FC = () => {
                   id="privacyMode"
                   value={privacyMode}
                   onChange={(e) => setPrivacyMode(e.target.value as 'default' | 'destroy-on-view')}
-                  className="p-3 rounded-lg border border-input bg-background text-primary focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  className="p-3 rounded-lg border border-input bg-background text-primary focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-200 hover:border-accent/30 cursor-pointer"
                   disabled={isLoading}
                 >
                   {PRIVACY_MODE_OPTIONS.map(option => (
@@ -151,7 +151,7 @@ const SaveTab: React.FC = () => {
           <button
             onClick={handleSave}
             disabled={isLoading || !text.trim()}
-            className="flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+            className="flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white py-3 px-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed mt-2 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
           >
             {isLoading ? (
               <Loader2 className="h-5 w-5 animate-spin" />
@@ -162,8 +162,8 @@ const SaveTab: React.FC = () => {
           </button>
         </>
       ) : (
-        <div className="flex flex-col items-center gap-6 py-4">
-          <div className="p-6 bg-card rounded-xl shadow-sm border border-divider flex flex-col items-center w-full max-w-md mx-auto">
+        <div className="flex flex-col items-center gap-6 py-4 animate-slide-up">
+          <div className="p-6 bg-card rounded-xl shadow-lg border border-divider flex flex-col items-center w-full max-w-md mx-auto animate-scale-in">
             <p className="text-secondary mb-2">Your unique code:</p>
             <div className="flex items-center gap-3 mb-6">
               <span className="text-3xl font-bold tracking-wider text-primary">
@@ -171,7 +171,7 @@ const SaveTab: React.FC = () => {
               </span>
               <button
                 onClick={copyCode}
-                className="p-2 rounded-lg hover:bg-hover text-primary transition-colors"
+                className="p-2 rounded-lg hover:bg-hover text-primary transition-all duration-200 hover:scale-110 active:scale-95"
                 aria-label="Copy code"
               >
                 <Copy className="h-5 w-5" />
@@ -180,7 +180,7 @@ const SaveTab: React.FC = () => {
 
             <div className="flex flex-col items-center gap-3">
               <p className="text-secondary mb-2">Scan this QR code:</p>
-              <div className="p-4 bg-white rounded-xl">
+              <div className="p-4 bg-white rounded-xl shadow-md transition-transform duration-200 hover:scale-105">
                 <QRCodeDisplay value={savedCode} size={200} />
               </div>
               <p className="text-xs text-secondary mt-2 text-center">
@@ -193,7 +193,7 @@ const SaveTab: React.FC = () => {
 
           <button
             onClick={resetForm}
-            className="text-accent hover:text-accent-hover transition-colors self-center"
+            className="text-accent hover:text-accent-hover transition-all duration-200 self-center hover:underline underline-offset-4"
           >
             Save another text
           </button>

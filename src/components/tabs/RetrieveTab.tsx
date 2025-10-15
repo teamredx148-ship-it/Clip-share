@@ -97,7 +97,7 @@ const RetrieveTab: React.FC = () => {
   };
 
   return (
-    <div className="p-4 md:p-6 flex flex-col gap-4">
+    <div className="p-4 md:p-6 flex flex-col gap-4 animate-fade-in">
       <h2 className="text-xl font-bold text-primary mb-2">Retrieve Text</h2>
 
       {!retrievedData ? (
@@ -119,14 +119,14 @@ const RetrieveTab: React.FC = () => {
                   }
                 }}
                 placeholder="12345"
-                className="flex-1 p-3 rounded-lg border border-input bg-background text-primary focus:outline-none focus:ring-2 focus:ring-accent/50"
+                className="flex-1 p-3 rounded-lg border border-input bg-background text-primary focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-200 hover:border-accent/30"
                 disabled={isLoading}
                 maxLength={5}
                 pattern="[0-9]*"
               />
               <button
                 onClick={() => setScannerOpen(true)}
-                className="p-3 rounded-lg bg-hover text-primary border border-input hover:bg-card transition-colors"
+                className="p-3 rounded-lg bg-hover text-primary border border-input hover:bg-card transition-all duration-200 hover:scale-105 active:scale-95"
                 aria-label="Scan QR code"
               >
                 <QrCode className="h-5 w-5" />
@@ -137,7 +137,7 @@ const RetrieveTab: React.FC = () => {
           <button
             onClick={handleRetrieve}
             disabled={isLoading || code.length !== 5}
-            className="flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white py-3 px-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
           >
             {isLoading ? (
               <Loader2 className="h-5 w-5 animate-spin" />
@@ -148,7 +148,7 @@ const RetrieveTab: React.FC = () => {
           </button>
 
           {scannerOpen && (
-            <div className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center p-4">
+            <div className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center p-4 animate-fade-in">
               <div className="bg-card max-w-md w-full rounded-xl shadow-lg border border-divider overflow-hidden">
                 <div className="p-4 border-b border-divider flex justify-between items-center">
                   <h3 className="text-lg font-semibold text-primary">Scan QR Code</h3>
@@ -176,10 +176,10 @@ const RetrieveTab: React.FC = () => {
           )}
         </>
       ) : (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 animate-slide-up">
           {/* Warning Message for Destroy-on-View */}
           {retrievedData.privacyMode === 'destroy-on-view' && (
-            <div className="flex items-center gap-3 p-4 bg-yellow-100 border border-yellow-400 text-yellow-800 rounded-lg" role="alert">
+            <div className="flex items-center gap-3 p-4 bg-yellow-100 border border-yellow-400 text-yellow-800 rounded-lg animate-scale-in shadow-md" role="alert">
               <AlertTriangle className="h-5 w-5 flex-shrink-0" />
               <p className="text-sm font-medium">
                 Warning: This text is set to be destroyed after viewing once.
@@ -187,7 +187,7 @@ const RetrieveTab: React.FC = () => {
             </div>
           )}
 
-          <div className="p-4 bg-card rounded-lg border border-divider">
+          <div className="p-4 bg-card rounded-lg border border-divider shadow-lg animate-scale-in">
             <div className="flex justify-between items-start mb-3">
               <div>
                 <h3 className="text-sm font-medium text-secondary">Retrieved Text</h3>
@@ -204,7 +204,7 @@ const RetrieveTab: React.FC = () => {
               </div>
               <button
                 onClick={copyToClipboard}
-                className="p-2 rounded-lg hover:bg-hover text-primary transition-colors flex-shrink-0"
+                className="p-2 rounded-lg hover:bg-hover text-primary transition-all duration-200 flex-shrink-0 hover:scale-110 active:scale-95"
                 aria-label="Copy text"
               >
                 <ClipboardCopy className="h-5 w-5" />
@@ -222,7 +222,7 @@ const RetrieveTab: React.FC = () => {
 
           <button
             onClick={resetForm}
-            className="text-accent hover:text-accent-hover transition-colors self-center"
+            className="text-accent hover:text-accent-hover transition-all duration-200 self-center hover:underline underline-offset-4"
           >
             Retrieve another text
           </button>

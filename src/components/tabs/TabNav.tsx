@@ -11,9 +11,9 @@ const TabNav: React.FC<TabNavProps> = ({ activeTab, setActiveTab }) => {
     <div className="flex w-full border-b border-divider">
       <button
         onClick={() => setActiveTab('save')}
-        className={`flex-1 py-3 px-4 flex items-center justify-center gap-2 transition-colors ${
-          activeTab === 'save' 
-            ? 'text-accent border-b-2 border-accent' 
+        className={`flex-1 py-3 px-4 flex items-center justify-center gap-2 transition-all duration-200 ${
+          activeTab === 'save'
+            ? 'text-accent border-b-2 border-accent'
             : 'text-secondary hover:text-primary hover:bg-hover'
         }`}
         aria-selected={activeTab === 'save'}
@@ -21,12 +21,12 @@ const TabNav: React.FC<TabNavProps> = ({ activeTab, setActiveTab }) => {
         <Save className="h-5 w-5" />
         <span className="font-medium">Save</span>
       </button>
-      
+
       <button
         onClick={() => setActiveTab('retrieve')}
-        className={`flex-1 py-3 px-4 flex items-center justify-center gap-2 transition-colors ${
-          activeTab === 'retrieve' 
-            ? 'text-accent border-b-2 border-accent' 
+        className={`flex-1 py-3 px-4 flex items-center justify-center gap-2 transition-all duration-200 ${
+          activeTab === 'retrieve'
+            ? 'text-accent border-b-2 border-accent'
             : 'text-secondary hover:text-primary hover:bg-hover'
         }`}
         aria-selected={activeTab === 'retrieve'}
